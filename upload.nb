@@ -5,22 +5,39 @@ Cell[BoxData[
  RowBox[{"Map", "[", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"CreateArchive", "[", 
-     RowBox[{"#", ",", " ", 
-      RowBox[{"FileNameJoin", "@", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
-         RowBox[{
-          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.zip\>\""}]}], 
-        "}"}]}]}], "]"}], "&"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"zipf", "=", 
+        RowBox[{"FileNameJoin", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
+           RowBox[{
+            RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.zip\>\""}]}],
+           "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Quiet", "@", 
+        RowBox[{"DeleteFile", "[", "zipf", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"CreateArchive", "[", 
+        RowBox[{"#", ",", " ", 
+         RowBox[{"FileNameJoin", "@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
+            RowBox[{
+             RowBox[{"FileBaseName", "[", "#", "]"}], "<>", 
+             "\"\<.zip\>\""}]}], "}"}]}]}], "]"}]}]}], "\[IndentingNewLine]", 
+     "]"}], "&"}], ",", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Select", "[", "DirectoryQ", "]"}], "@", "\[IndentingNewLine]", 
     RowBox[{"FileNames", "[", 
      RowBox[{"\"\<*\>\"", ",", " ", 
       RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}]}]}], 
   "\[IndentingNewLine]", "]"}]], "Input",
- CellLabel->"In[13]:=",ExpressionUUID->"de362efc-1002-4ed7-9e2c-c70f50b662d3"],
+ CellLabel->
+  "In[784]:=",ExpressionUUID->"de362efc-1002-4ed7-9e2c-c70f50b662d3"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -37,8 +54,7 @@ Cell[BoxData[
    ",", "\<\"/Users/Mark/Documents/GitHub/SiteThemes/tutorial.zip\"\>", 
    ",", "\<\"/Users/Mark/Documents/GitHub/SiteThemes/w3arch.zip\"\>"}], 
   "}"}]], "Output",
- CellLabel->
-  "Out[13]=",ExpressionUUID->"7582e3ca-534e-4684-9af4-8246ac319aa8"]
+ CellLabel->"Out[784]=",ExpressionUUID->"f3056620-d007-4c2e-9191-3e07ebcda4b4"]
 }, Open  ]]
 },
 WindowSize->{808, 755},
